@@ -1,0 +1,88 @@
+x canary test
+
+StringWriterTest
+x write nothing to a StringWriter
+x write a string to a StringWriter
+x write a string twice to a StringWriter
+x write, close, write to a StringWriter
+x close, write to a StringWriter
+
+FileWriterTest
+x write nothing to a FileWriter
+x write a string to a FileWriter
+x write a string twice to a FileWriter
+x write, close, write to a FileWriter
+x close, write to a FileWriter
+
+StringWriter - LowerCase Operations Tests
+x create a StringWriter, configure it with a lowercase operation
+x write nothing to the StringWriter
+x write "hello THERE" to the StringWriter and verify content is "hello there"
+x write "hELLo" and then write "wORLd" to the StringWriter, verify content is "hello world"
+x write "heLLo", close, write "thERe" to the StringWriter
+x close, write "heLLo" to the StringWriter
+
+FileWriter - Lowercase Operations Tests
+x write nothing to the FileWriter
+x write "hello THERE" to the FileWriter and verify content is "hello there"
+x write "hELLo" and then write "wORLd" to the FileWriter, verify content is "hello world"
+x write "heLLo", close, write "thERe" to the FileWriter
+x close, write "heLLo" to the FileWriter
+
+StringWriter UpperCase Operations Tests
+x write nothing to the StringWriter
+x write "hello THERE" to the StringWriter and verify content is "HELLO THERE"
+x write "hELLo" and then write "wORLd" to the StringWriter, verify content is "HELLO WORLD"
+x write "heLLo", close, write "thERe" to the StringWriter
+x close, write "heLLo" to the StringWriter
+
+FileWriter UpperCase Operations Tests
+x write nothing to the StringWriter
+x write "hello THERE" to the StringWriter and verify content is "HELLO THERE"
+x write "hELLo" and then write "wORLd" to the StringWriter, verify content is "HELLO WORLD"
+x write "heLLo", close, write "thERe" to the StringWriter
+x close, write "heLLo" to the StringWriter
+
+StringWriter Duplicate Remover Operations Tests
+x write nothing to the StringWriter
+x write "This is is it" to the StringWriter and verify content is "This is it"
+x write "This is is it." and then write "Apple is a fruit fruit" to the StringWriter, verify content is "This is it.Apple is a fruit"
+x write "This is is it", close, write "Apple is a fruit fruit" to the StringWriter
+x close, write "This is is it" to the StringWriter
+x write "This is IS it" to the StringWriter and verify content is "This is IS it"
+
+FileWriter Duplicate Remover Operations Tests
+x write nothing to the StringWriter
+x write "This is is it" to the StringWriter and verify content is "This is it"
+x write "This is is it." and then write "Apple is a fruit fruit" to the StringWriter, verify content is "This is it.Apple is a fruit"
+x write "This is is it", close, write "Apple is a fruit fruit" to the StringWriter
+x close, write "This is is it" to the StringWriter
+x write "This is IS it" to the StringWriter and verify content is "This is IS it"
+
+StringWriter Stupid Remover Operations Tests
+x write nothing to the StringWriter
+x write "this is really stupid" to the StringWriter and verify content is "this is really s*****"
+x write "stupid" and then write "reallystupid" to the StringWriter, verify content is "s*****reallys*****"
+x write "stupid", close, write "reallystupid" to the StringWriter
+x close, write "stupid" to the StringWriter
+x write "Stupid" to stringWriter does not replace the word and remains "Stupid"
+
+FileWriter Stupid Remover Operations Tests
+x write nothing to the StringWriter
+x write "this is really stupid" to the StringWriter and verify content is "this is really s*****"
+x write "stupid" and then write "reallystupid" to the StringWriter, verify content is "s*****reallys*****"
+x write "stupid", close, write "reallystupid" to the StringWriter
+x close, write "stupid" to the StringWriter
+x write "Stupid" to stringWriter does not replace the word and remains "Stupid"
+
+CombinedOperations Tests
+x write "hello THERE" to the StringWriter and verify content is "hello there" - Upper then Lower
+x write "hello THERE" to the FileWriter and verify content is "HELLO THERE" - Lower then Upper
+x write "hello THERE stupid" to the StringWriter and verify content is "hello there s*****"  - Upper then Lower then stupid remove
+x write "hello THERE stupid" to the FileWriter and verify content is "hello there s*****" - Upper then Lower then stupid remove
+x write "hello there there" to the StringWriter and verify content is "HELLO THERE" - Upper then Duplicate
+x write "hello there there" to the FileWriter and verify content is "HELLO THERE" - Upper then Duplicate
+x write "tHIS is sTUpiD STUPID" to the StringWriter and verify content is "this is s*****" - Lower then duplicate remove then stupid remove
+x write "tHIS is sTUpiD STUPID" to the FileWriter and verify content is "this is s*****" - Lower then duplicate remove then stupid remove
+x write "tHIS is sTUpiD STUPID" to the StringWriter and verify content is "THIS IS S*****" - Upper then stupid remove then duplicate remove
+x write "tHIS is sTUpiD STUPID" to the FileWriter and verify content is "THIS IS S*****" - Upper then stupid remove then duplicate remove
